@@ -1,0 +1,263 @@
+(page "index.html"
+  (:require
+    [tailrecursion.hoplon.reload :refer [reload-all]]
+    [history.tabs :as htabs]
+    [cljsjs.jquery :as jq]))
+
+(reload-all 1000)
+
+(html :lang "en"
+  (head
+    (meta :charset "utf-8")
+    (meta :name "viewport" :content "width=device-width, initial-scale=1")
+    (link :href "css/bootstrap.min.css" :rel "stylesheet")
+    ; developer's customizations
+    (link :href "css/main.css" :rel "stylesheet")
+    (script :src "js/main.js" :type "text/javascript")) ;end script, head
+  (body
+    (div :class "container col-md-12"
+      (div :class "page-header col-md-12"
+        (h3 :class "topheader" "History of the World"))) ;end of h1, page-header, container
+    (htabs/pBrowse) ;tabs for Browse page
+    ; Tab Contents for the Browse Tab
+    (div :class "tab-content"
+        (div :id "secBrowse" :class "tab-pane fade in active"
+          (div :id "divBrowseDataChoices" :class "panel panel-default col-md-2"
+            (div :class "panel-heading" (h3 :class "panelHeading" (strong "Content View")))
+            (div :class "panel-body"
+              (form :role "form"
+                (div :class "checkbox"
+                  (label (input :type "checkbox" :value "") "Events"))
+                (div :class "checkbox"
+                  (label (input :type "checkbox" :value "") "People"))
+                (button :id "btnBrowseUpdate" :class "btn btn-primary btn-success"
+                  (span :class "glyphicon glyphicon-play") "Update")) ;end button, form
+          ))) ;end panel-body, panel-heading, divBrowseDataChoices
+          (div :id "divBrowseDataTable" :class "panel panel-default col-md-10"
+            (table :id="tblBrowse" :class "display" :cellspacing "0" :width "100%"
+              (thead
+                (tr
+                  (th "ID")
+                  (th "Caption")
+                  (th "Start (Bible)")
+                  (th "Start (Gregorian)")
+                  (th "End (Bible)")
+                  (th "End (Gregorian)")
+                  (th "Type")
+                  (th "Place")
+                  (th "Notes"))) ;end th, tr, thead
+              (tbody
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)"))
+                (tr
+                  (td "0")
+                  (td "Precessional Era of Leo")
+                  (td "-105")
+                  (td "-11080")
+                  (td "2095")
+                  (td "-8880")
+                  (td "Calendar")
+                  (td "Earth")
+                  (td "The Precessional Era of Leo (2,200 years)")))
+              (tfoot
+                (tr
+                  (th "ID")
+                  (th "Caption")
+                  (th "Start (Bible)")
+                  (th "Start (Gregorian)")
+                  (th "End (Bible)")
+                  (th "End (Gregorian)")
+                  (th "Type")
+                  (th "Place")
+                  (th "Notes"))) ;end th, tr, tfoot
+
+            ) ;end table
+          ))))) ;end divBroseDataTable, secBrowse, tab-content, body, html
