@@ -1,6 +1,3 @@
-#!/usr/bin/env boot
-
-
 (set-env!
   ;; using the sonatype repo is sometimes useful when testing Clojurescript
   ;; versions that not yet propagated to Clojars
@@ -9,32 +6,23 @@
   :project      'hbstest
   :version      "0.1.0-SNAPSHOT"
   :description  "History of the World bootstrap 3 tests (Hoplon)"
-  :source-paths   #{"src/hoplon" "src/cljs" "src/js"}
-  :resource-paths #{"resources"}
-  :target-path    #{"resources/public"}
-  :dependencies  '[[adzerk/boot-cljs          "0.0-2814-0"]
-                   [adzerk/boot-cljs-repl     "0.1.9"]
+  :source-paths   #{"src"}
+  :resource-paths #{"assets"}
+  :dependencies  '[[adzerk/boot-cljs-repl     "0.1.9"]
                    [adzerk/boot-reload        "0.2.6"]
                    [pandeiro/boot-http        "0.6.2"]
+                   [markdown-clj              "0.9.62"]
+                   [adzerk/boot-cljs          "0.0-2814-0"]
                    [tailrecursion/boot-hoplon "0.1.0-SNAPSHOT"]
                    [tailrecursion/hoplon      "6.0.0-SNAPSHOT"]])
 
 (require
   '[adzerk.boot-cljs :refer [cljs]]
-  '[adzerk.boot-cljs-repl :refer [cljs-repl start-repl]]
   '[adzerk.boot-reload :refer [reload]]
   '[pandeiro.boot-http :refer [serve]]
+  '[adzerk.boot-cljs-repl :refer [cljs-repl start-repl]]
   '[tailrecursion.boot-hoplon :refer [haml hoplon prerender html2cljs]])
 
-(deftask build []
-  (comp (speak) (cljs)))
-
-(deftask run []
-  (comp (serve)
-        (watch :quiet true)
-        (cljs-repl)
-        (hoplon)
-        (build)))
 
 (deftask production []
   (task-options! cljs {:optimizations :advanced
@@ -45,24 +33,28 @@
   identity)
 
 (deftask development []
-  (task-options! cljs {:optimizations :none
+  (task-options! watch {:quiet true}
+                 hoplon {:pretty-print true}
+                 cljs {:optimizations :none
                        :unified-mode true
                        :source-map true}
-                 hoplon {:pretty-print  true
-                         :prerender     false
-                         :optimizations :none})
+                 serve {:resource-root "resources/public" :reload true})
   identity)
 
 (deftask dev
   "Simple alias to run application in development mode"
   []
-  (comp (development)
-        (run)))
-
+  (comp
+    (watch)
+    (haml)
+    (hoplon)
+    (cljs)
+    (serve)
+    (speak)))
 
 (task-options!
   pom  {:project     'quasaur/hbstest
-        :version     +version+
+        :version     "0.1.0-SNAPSHOT"
         :description "History of the World bootstrap 3 tests (Hoplon)"
         :url         "https://github.com/quasaur/hbstest"
         :scm         {:url "https://github.com/quasaur/hbstest"}

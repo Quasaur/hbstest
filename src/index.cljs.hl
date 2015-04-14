@@ -1,19 +1,19 @@
 (page "index.html"
+  (:refer-clojure :exclude [meta])
   (:require
-    [tailrecursion.hoplon.reload :refer [reload-all]]
-    [history.tabs :as htabs]
-    [cljsjs.jquery :as jq]))
-
-(reload-all 1000)
+    [history.tabs :as htabs]))
 
 (html :lang "en"
   (head
-    (meta :charset "utf-8")
-    (meta :name "viewport" :content "width=device-width, initial-scale=1")
-    (link :href "css/bootstrap.min.css" :rel "stylesheet")
-    ; developer's customizations
+    (html-meta :charset "utf-8")
+    (html-meta :name "viewport")
+    (html-meta :content "width=device-width, initial-scale=1")
+    (link :href "css/bootstrap.css" :rel "stylesheet")
+    (link :href "css/bootstrap-theme.css" :rel "stylesheet")
+   ; developer's customizations
     (link :href "css/main.css" :rel "stylesheet")
-    (script :src "js/main.js" :type "text/javascript")) ;end script, head
+   ; (script :src "js/main.js" :type "text/javascript")
+   ) ;end script, head
   (body
     (div :class "container col-md-12"
       (div :class "page-header col-md-12"

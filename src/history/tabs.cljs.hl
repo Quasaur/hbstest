@@ -1,0 +1,12 @@
+(ns history.tabs)
+
+(defn pBrowse []
+  (ul :class "nav nav-tabs"
+    (li :class "active" (a :data-toggle "tab" :href "#secBrowse" "Browse"))
+    (li (a :data-toggle "tab" :href "#" "Graph"))
+    (li (a :data-toggle "tab" :href "#" "Map"))
+    (li (a :data-toggle "tab" :href "#" "Chart"))
+    (li (a :data-toggle "tab" :href "#" "Add"))
+    (li (a :data-toggle "tab" :href "#" "Learn"))
+    (li (a :data-toggle "tab" :href "#" "Changes"))
+    (li (a :data-toggle "tab" :href "#" "Seek")))) ;end a, li, ul, defn
